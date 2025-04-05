@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     // Login to DockerHub and push the image
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_REGISTRY_CREDENTIALS) {
+                    docker.withRegistry('https://index.docker.io/', DOCKER_REGISTRY_CREDENTIALS) {
                         docker.image(DOCKER_IMAGE).push('latest')
                     }
                 }
