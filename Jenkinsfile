@@ -71,25 +71,5 @@ pipeline {
             }
         }
     }
-
-    post {
-        // Optional: Clean up resources after build
-        always {
-            echo 'Cleaning up after the build...'
-            // Stop and remove the container if needed
-            sh "docker stop ${CONTAINER_NAME} || true"
-            sh "docker rm ${CONTAINER_NAME} || true"
-        }
-
-        // Optional: Handling any failures
-        failure {
-            echo 'Build failed!'
-        }
-
-        // Optional: Notify on success
-        success {
-            echo 'Build completed successfully!'
-        }
-    }
 }
 
